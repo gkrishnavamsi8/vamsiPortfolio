@@ -43,6 +43,23 @@ const Experience = () => {
             </div>
           </div>
 
+          {/* Top impacts — quick scan for recruiters */}
+          <div
+            data-testid="experience-top-impacts"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-ink-600 border-b border-ink-600"
+          >
+            {EXPERIENCE.topImpacts.map((impact) => (
+              <div key={impact.label} className="bg-ink-900 p-6 sm:p-8">
+                <div className="font-sans font-bold text-3xl sm:text-4xl text-amber tracking-tighter">
+                  {impact.value}
+                </div>
+                <div className="mt-2 font-body text-sm text-bone-muted leading-relaxed">
+                  {impact.label}
+                </div>
+              </div>
+            ))}
+          </div>
+
           {/* Bullets list */}
           <ul className="divide-y divide-ink-600">
             {EXPERIENCE.bullets.map((b, i) => (

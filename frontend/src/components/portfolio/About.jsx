@@ -29,10 +29,10 @@ const About = () => {
 
             <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-px bg-ink-600 border border-ink-600">
               {[
-                { k: "Role", v: "SDE → AI" },
+                { k: "Role", v: "Software Developer" },
                 { k: "Domain", v: "Telecom · Fintech" },
-                { k: "Code", v: "Java · Python" },
-                { k: "Mode", v: "Builder" },
+                { k: "Code", v: "Java · React" },
+                { k: "Mode", v: "Full-stack" },
               ].map((item) => (
                 <div key={item.k} className="bg-ink-950 p-4">
                   <div className="label-mono text-bone-dim">{item.k}</div>

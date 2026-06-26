@@ -1,5 +1,5 @@
 import { EDUCATION } from "../../data/portfolio";
-import { GraduationCap, FileText } from "lucide-react";
+import { GraduationCap, FileText, ArrowUpRight } from "lucide-react";
 
 const Education = () => {
   return (
@@ -54,20 +54,26 @@ const Education = () => {
               </div>
             </div>
 
-            <div
+            <a
               data-testid="publication-card"
-              className="mt-4 border border-ink-600 bg-ink-900 p-6 sm:p-8 flex items-start gap-4"
+              href={EDUCATION.publicationUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 border border-ink-600 bg-ink-900 p-6 sm:p-8 flex items-start gap-4 hover:border-amber transition-colors group block"
             >
-              <div className="w-12 h-12 border border-ink-500 flex items-center justify-center text-bone-muted shrink-0">
+              <div className="w-12 h-12 border border-ink-500 flex items-center justify-center text-bone-muted group-hover:text-amber group-hover:border-amber shrink-0 transition-colors">
                 <FileText className="w-5 h-5" strokeWidth={1.5} />
               </div>
-              <div>
+              <div className="flex-1">
                 <div className="label-mono">IEEE OCIT 2022 · Publication</div>
                 <p className="mt-2 font-body text-bone leading-relaxed">
                   {EDUCATION.highlight}
                 </p>
+                <span className="mt-4 inline-flex items-center gap-1 label-mono text-amber group-hover:gap-2 transition-all">
+                  Read on IEEE Xplore <ArrowUpRight className="w-3 h-3" />
+                </span>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>

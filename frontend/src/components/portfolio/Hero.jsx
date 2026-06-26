@@ -1,5 +1,5 @@
 import { ArrowUpRight, Github, Linkedin, Mail, Download } from "lucide-react";
-import { PERSON, METRICS } from "../../data/portfolio";
+import { PERSON, METRICS, JOB_SEARCH } from "../../data/portfolio";
 
 const Hero = () => {
   return (
@@ -30,7 +30,9 @@ const Hero = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-amber" />
               </span>
-              <span className="label-mono">Open to senior SDE + GenAI roles</span>
+              <span className="label-mono">
+                Open to {JOB_SEARCH.targetRole} roles · {JOB_SEARCH.workMode} · {JOB_SEARCH.noticePeriod} notice
+              </span>
             </div>
 
             <h1
@@ -47,8 +49,7 @@ const Hero = () => {
             >
               {PERSON.tagline}
               <br />
-              <span className="text-bone">SDE @ Amdocs.</span>{" "}
-              <span className="text-bone-muted">3+ years shipping Java/Spring Boot, Kafka, K8s. Now building Agentic AI on LangGraph + MCP.</span>
+              <span className="text-bone-muted">{PERSON.heroDetail}</span>
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3" data-testid="hero-ctas">
@@ -99,7 +100,7 @@ const Hero = () => {
               <div className="mb-6 relative inline-block group">
                 <img
                   data-testid="hero-profile-photo"
-                  src="/profile.png"
+                  src={PERSON.profilePhoto}
                   alt="Krishna Vamsi Gangisetty"
                   loading="eager"
                   className="w-40 h-40 sm:w-44 sm:h-44 object-cover border border-ink-600 grayscale group-hover:grayscale-0 transition-all duration-500"
@@ -119,7 +120,7 @@ const Hero = () => {
                 <div>
                   <div className="label-mono text-bone-dim">Stack</div>
                   <div className="mt-1 text-bone font-mono text-sm leading-relaxed">
-                    Java · Spring Boot<br />Kafka · K8s<br />LangGraph · RAG
+                    Java · Spring Boot<br />React · Tailwind<br />Kafka · K8s · LangGraph
                   </div>
                 </div>
                 <a

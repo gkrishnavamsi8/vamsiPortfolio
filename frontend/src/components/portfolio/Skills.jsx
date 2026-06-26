@@ -63,7 +63,7 @@ const Skills = () => {
           </div>
           <div className="col-span-12 lg:col-span-6 lg:col-start-7 flex items-end">
             <p className="font-body text-lg text-bone-muted leading-relaxed">
-              I lead with backend &amp; cloud engineering — that&apos;s the foundation. GenAI is layered on top: not a buzzword section, but real production work with LangGraph, MCP, and RAG pipelines.
+              Backend, frontend, and GenAI — Java/Spring Boot &amp; Kafka for scale, React for polished UIs, and LangGraph + MCP for production Agentic AI.
             </p>
           </div>
         </div>

@@ -1,22 +1,36 @@
 // Central content store for the portfolio. Edit here to update across the site.
 
+const publicUrl = process.env.PUBLIC_URL || "";
+
 export const PERSON = {
   name: "Krishna Vamsi Gangisetty",
   shortName: "Krishna Vamsi",
   monogram: "KV",
-  tagline: "Software Engineer building scalable systems & shipping GenAI features.",
+  tagline:
+    "Software Developer who ships at scale — backend systems, React frontends, and production Agentic AI.",
+  heroDetail:
+    "SDE @ Amdocs · 3+ years with Java/Spring Boot, Kafka & K8s · React for full-stack delivery · Agentic AI on LangGraph + MCP.",
   location: "Pune, India",
   email: "gangisettykrishnavamsi@gmail.com",
   phone: "+91 7780150531",
   github: "https://github.com/gkrishnavamsi8",
   linkedin: "https://linkedin.com/in/gkrishnavamsi8",
-  resumeUrl: "/Krishna_Vamsi_Resume.pdf",
+  profilePhoto: `${publicUrl}/profile.png`,
+  resumeUrl: `${publicUrl}/Vamsi_Resume_SDE.pdf`,
   yearsOfExperience: "3+",
+  siteUrl: "https://vamsigangisetty.in",
+};
+
+export const JOB_SEARCH = {
+  targetRole: "Software Developer",
+  workMode: "Remote · Hybrid · Open to relocate",
+  noticePeriod: "45 days",
+  location: "Pune, India",
 };
 
 export const ABOUT = [
   "I'm a Software Developer with 3+ years of experience building scalable, high-availability backend systems on Java and Spring Boot. At Amdocs I work on telecom platforms for Comcast and AT&T that quietly handle a million customer requests a day.",
-  "Lately, I've been pushing engineering rigor into the GenAI side of the house — designing Agentic AI platforms with LangChain, LangGraph, MCP servers, RAG over pgvector, and Azure OpenAI. SDE by day, agent-builder by night.",
+  "I also build React frontends — including this portfolio — and push engineering rigor into the GenAI side of the house with Agentic AI platforms using LangChain, LangGraph, MCP servers, RAG over pgvector, and Azure OpenAI.",
 ];
 
 export const EXPERIENCE = {
@@ -26,6 +40,20 @@ export const EXPERIENCE = {
   period: "Jul 2023 — Present",
   blurb:
     "Backend & cloud engineer on telecom platforms for Comcast and AT&T. Also lead engineer on AskMiPaaS — an internal Agentic AI platform.",
+  topImpacts: [
+    {
+      value: "1M+",
+      label: "Daily customer requests handled in production",
+    },
+    {
+      value: "60%",
+      label: "Drop in defect-investigation effort via AskMiPaaS",
+    },
+    {
+      value: "50K+",
+      label: "Kafka events/day at sub-200ms latency",
+    },
+  ],
   bullets: [
     {
       tag: "BACKEND",
@@ -118,6 +146,8 @@ export const PROJECTS = [
       "Peer-reviewed at IEEE OCIT 2022",
     ],
     tech: ["Python", "Apriori", "Chi-Square Test", "Pandas"],
+    link: "https://ieeexplore.ieee.org/document/10053710",
+    linkLabel: "Read on IEEE Xplore",
   },
 ];
 
@@ -126,8 +156,9 @@ export const SKILLS = {
     title: "SDE STACK",
     subtitle: "Primary — what I ship every day",
     groups: [
-      { label: "Languages", items: ["Java 17 / 21", "Python", "SQL", "YAML"] },
-      { label: "Frameworks", items: ["Spring Boot", "Spring MVC", "Spring Data JPA", "Hibernate", "Resilience4j"] },
+      { label: "Languages", items: ["Java 17 / 21", "Python", "JavaScript", "SQL", "YAML"] },
+      { label: "Backend", items: ["Spring Boot", "Spring MVC", "Spring Data JPA", "Hibernate", "Resilience4j"] },
+      { label: "Frontend", items: ["React", "Tailwind CSS", "HTML/CSS", "Responsive UI"] },
       { label: "Cloud & Containers", items: ["AWS", "Docker", "Kubernetes", "OpenShift", "Helm"] },
       { label: "Messaging", items: ["Apache Kafka", "Kafka Streams"] },
       { label: "Databases", items: ["PostgreSQL", "Cassandra", "Redis", "pgvector"] },
@@ -155,6 +186,7 @@ export const EDUCATION = {
   period: "2019 — 2023",
   cgpa: "8.3 / 10",
   highlight: "Published at IEEE OCIT 2022 — Grocery Recommendation using improvised Apriori + Chi-Square.",
+  publicationUrl: "https://ieeexplore.ieee.org/document/10053710",
 };
 
 export const NAV_LINKS = [

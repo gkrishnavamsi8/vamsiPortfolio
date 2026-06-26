@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ArrowUpRight, Copy, Check, Mail, Github, Linkedin, MapPin } from "lucide-react";
-import { PERSON } from "../../data/portfolio";
+import { ArrowUpRight, Copy, Check, Mail, Github, Linkedin, MapPin, Phone } from "lucide-react";
+import { PERSON, JOB_SEARCH } from "../../data/portfolio";
 
 const Contact = () => {
   const [copied, setCopied] = useState(false);
@@ -14,6 +14,8 @@ const Contact = () => {
       // noop
     }
   };
+
+  const phoneHref = `tel:${PERSON.phone.replace(/\s/g, "")}`;
 
   return (
     <section
@@ -32,12 +34,11 @@ const Contact = () => {
               Let&apos;s build<br />something.
             </h2>
             <p className="mt-6 font-body text-lg text-bone-muted leading-relaxed max-w-md">
-              Hiring for an SDE, AI/ML or GenAI Engineer role? Or just want to swap notes on Kafka, LangGraph, or production systems — drop a line.
+              Hiring for a {JOB_SEARCH.targetRole} role? I&apos;m open to {JOB_SEARCH.workMode.toLowerCase()} with a {JOB_SEARCH.noticePeriod} notice period. Based in {JOB_SEARCH.location}.
             </p>
           </div>
 
           <div className="col-span-12 lg:col-span-6 lg:col-start-7">
-            {/* Primary email block */}
             <button
               data-testid="contact-email-copy"
               onClick={copyEmail}
@@ -63,6 +64,24 @@ const Contact = () => {
                 </div>
               </div>
             </button>
+
+            <a
+              data-testid="contact-phone-link"
+              href={phoneHref}
+              className="mt-4 block w-full text-left border border-ink-600 bg-ink-900 p-6 sm:p-8 hover:border-amber transition-all group"
+            >
+              <div className="flex items-center justify-between gap-4">
+                <div className="min-w-0 flex-1">
+                  <div className="label-mono">Phone</div>
+                  <div className="mt-2 font-mono text-base sm:text-xl text-bone">
+                    {PERSON.phone}
+                  </div>
+                </div>
+                <div className="shrink-0 inline-flex items-center gap-2 label-mono text-bone-muted group-hover:text-amber">
+                  <Phone className="w-4 h-4" strokeWidth={1.5} /> Call
+                </div>
+              </div>
+            </a>
 
             <a
               data-testid="contact-email-link"

@@ -47,15 +47,28 @@ const ProjectCard = ({ project, index }) => {
           </ul>
         )}
 
-        <div className="mt-8 pt-6 border-t border-ink-600 flex flex-wrap gap-2">
-          {project.tech.map((t) => (
-            <span
-              key={t}
-              className="font-mono text-xs px-2.5 py-1 border border-ink-600 text-bone-muted group-hover:border-ink-500 transition-colors"
+        <div className="mt-8 pt-6 border-t border-ink-600 flex flex-wrap items-center justify-between gap-4">
+          <div className="flex flex-wrap gap-2">
+            {project.tech.map((t) => (
+              <span
+                key={t}
+                className="font-mono text-xs px-2.5 py-1 border border-ink-600 text-bone-muted group-hover:border-ink-500 transition-colors"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+          {project.link && (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid={`project-link-${project.id}`}
+              className="inline-flex items-center gap-1 label-mono text-amber hover:gap-2 transition-all shrink-0"
             >
-              {t}
-            </span>
-          ))}
+              {project.linkLabel || "View project"} <ArrowUpRight className="w-3 h-3" />
+            </a>
+          )}
         </div>
       </div>
 
