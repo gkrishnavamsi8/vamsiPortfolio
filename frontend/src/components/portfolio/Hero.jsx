@@ -46,7 +46,7 @@ const Hero = () => {
 
             <HeroCodeTerminal />
 
-            <div className="mt-6 flex flex-wrap gap-3" data-testid="hero-ctas">
+            <div className="mt-8 sm:mt-10 flex flex-wrap gap-3" data-testid="hero-ctas">
               <a
                 data-testid="hero-resume-btn"
                 href={PERSON.resumeUrl}
