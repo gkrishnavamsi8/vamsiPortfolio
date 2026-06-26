@@ -1,11 +1,12 @@
 import { ArrowUpRight, Github, Linkedin, Mail, Download } from "lucide-react";
 import { PERSON, METRICS, JOB_SEARCH } from "../../data/portfolio";
+import HeroCodeTerminal from "./HeroCodeTerminal";
 
 const Hero = () => {
   return (
     <section
       data-testid="hero-section"
-      className="relative pt-32 pb-20 sm:pt-40 sm:pb-24 overflow-hidden"
+      className="relative pt-28 pb-12 sm:pt-36 sm:pb-16 overflow-hidden"
     >
       {/* Layered background */}
       <div className="absolute inset-0 bg-grid opacity-50 pointer-events-none" />
@@ -22,10 +23,10 @@ const Hero = () => {
       <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-amber/[0.04] blur-[120px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6 sm:px-12 w-full">
-        <div className="grid grid-cols-12 gap-6">
+        <div className="grid grid-cols-12 gap-6 lg:gap-8 items-start">
           {/* Left column - main content */}
           <div className="col-span-12 lg:col-span-9">
-            <div className="flex items-center gap-3 mb-8" data-testid="hero-status">
+            <div className="flex items-center gap-3 mb-6" data-testid="hero-status">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-amber" />
@@ -43,16 +44,9 @@ const Hero = () => {
               <span className="text-amber animate-blink ml-1">_</span>
             </h1>
 
-            <p
-              data-testid="hero-tagline"
-              className="mt-8 max-w-2xl text-lg sm:text-xl text-bone-muted leading-relaxed font-body"
-            >
-              {PERSON.tagline}
-              <br />
-              <span className="text-bone-muted">{PERSON.heroDetail}</span>
-            </p>
+            <HeroCodeTerminal />
 
-            <div className="mt-10 flex flex-wrap gap-3" data-testid="hero-ctas">
+            <div className="mt-6 flex flex-wrap gap-3" data-testid="hero-ctas">
               <a
                 data-testid="hero-resume-btn"
                 href={PERSON.resumeUrl}
@@ -95,9 +89,9 @@ const Hero = () => {
           </div>
 
           {/* Right column - photo + meta info */}
-          <div className="col-span-12 lg:col-span-3 lg:pt-8">
+          <div className="col-span-12 lg:col-span-3">
             <div className="border-t border-ink-600 lg:border-t-0 lg:border-l lg:pl-6 pt-6 lg:pt-0">
-              <div className="mb-6 relative inline-block group">
+              <div className="mb-4 relative inline-block group">
                 <img
                   data-testid="hero-profile-photo"
                   src={PERSON.profilePhoto}
@@ -108,7 +102,7 @@ const Hero = () => {
                 <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b border-r border-amber pointer-events-none" />
                 <div className="absolute -top-2 -left-2 w-8 h-8 border-t border-l border-amber pointer-events-none" />
               </div>
-              <div className="space-y-6">
+              <div className="space-y-4">
                 <div>
                   <div className="label-mono text-bone-dim">Currently</div>
                   <div className="mt-1 text-bone font-mono text-sm">SDE @ Amdocs</div>
@@ -140,12 +134,12 @@ const Hero = () => {
         {/* Metrics strip */}
         <div
           data-testid="hero-metrics"
-          className="mt-20 sm:mt-28 grid grid-cols-2 lg:grid-cols-4 border-t border-ink-600"
+          className="mt-8 sm:mt-10 grid grid-cols-2 lg:grid-cols-4 border-t border-ink-600"
         >
           {METRICS.map((m, i) => (
             <div
               key={i}
-              className={`py-8 px-2 lg:px-6 ${
+              className={`py-5 sm:py-6 px-2 lg:px-6 ${
                 i < METRICS.length - 1 ? "lg:border-r border-ink-600" : ""
               } ${i < 2 ? "border-b lg:border-b-0 border-ink-600" : ""} ${
                 i === 0 || i === 2 ? "border-r lg:border-r border-ink-600" : ""
