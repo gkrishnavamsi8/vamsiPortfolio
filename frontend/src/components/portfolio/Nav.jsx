@@ -1,31 +1,56 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { NAV_LINKS, PERSON } from "../../data/portfolio";
+
+export const NAV_HEIGHT = 64;
+
+const sectionTop = (el) => el.getBoundingClientRect().top + window.scrollY;
+
+export const scrollToSection = (id) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  window.scrollTo({
+    top: sectionTop(el) - NAV_HEIGHT,
+    behavior: "smooth",
+  });
+};
 
 const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
+  const scrollLockUntil = useRef(0);
 
   useEffect(() => {
-    const onScroll = () => {
+    const updateActiveSection = () => {
       setScrolled(window.scrollY > 24);
-      const sections = NAV_LINKS.map((n) => document.getElementById(n.id));
-      const top = window.scrollY + 140;
-      const current = sections.findLast?.((s) => s && s.offsetTop <= top);
-      if (current) setActive(current.id);
+
+      if (Date.now() < scrollLockUntil.current) return;
+
+      const marker = window.scrollY + NAV_HEIGHT + 12;
+      let currentId = "";
+
+      for (const link of NAV_LINKS) {
+        const el = document.getElementById(link.id);
+        if (!el) continue;
+        if (sectionTop(el) <= marker) {
+          currentId = link.id;
+        }
+      }
+
+      setActive(currentId);
     };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
+
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    updateActiveSection();
+    return () => window.removeEventListener("scroll", updateActiveSection);
   }, []);
 
   const handleClick = (id) => {
     setOpen(false);
-    const el = document.getElementById(id);
-    if (el) {
-      window.scrollTo({ top: el.offsetTop - 72, behavior: "smooth" });
-    }
+    setActive(id);
+    scrollLockUntil.current = Date.now() + 900;
+    scrollToSection(id);
   };
 
   return (
@@ -40,7 +65,11 @@ const Nav = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-12 h-16 flex items-center justify-between">
         <button
           data-testid="nav-brand"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          onClick={() => {
+            scrollLockUntil.current = Date.now() + 900;
+            setActive("");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
           className="flex items-center gap-3 group"
         >
           <div className="w-9 h-9 border border-amber flex items-center justify-center font-mono text-amber text-sm tracking-widest group-hover:bg-amber group-hover:text-ink-950 transition-colors">
@@ -94,7 +123,9 @@ const Nav = () => {
                 key={link.id}
                 data-testid={`nav-mobile-link-${link.id}`}
                 onClick={() => handleClick(link.id)}
-                className="text-left py-3 font-mono text-xs tracking-widest uppercase text-bone-muted hover:text-amber transition-colors"
+                className={`text-left py-3 font-mono text-xs tracking-widest uppercase transition-colors ${
+                  active === link.id ? "text-amber" : "text-bone-muted hover:text-amber"
+                }`}
               >
                 {link.label}
               </button>

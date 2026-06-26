@@ -1,13 +1,10 @@
 import { EXPERIENCE } from "../../data/portfolio";
+import { SECTION_INNER } from "./sectionStyles";
 
 const Experience = () => {
   return (
-    <section
-      id="experience"
-      data-testid="experience-section"
-      className="relative py-24 sm:py-32 border-t border-ink-600"
-    >
-      <div className="max-w-7xl mx-auto px-6 sm:px-12">
+    <section data-testid="experience-section" className="border-t border-ink-600">
+      <div id="experience" className={SECTION_INNER}>
         <div className="grid grid-cols-12 gap-8 mb-12">
           <div className="col-span-12 lg:col-span-4">
             <div className="label-mono">[ 02 / Experience ]</div>

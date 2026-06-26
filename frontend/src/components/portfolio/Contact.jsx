@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ArrowUpRight, Copy, Check, Mail, Github, Linkedin, MapPin, Phone } from "lucide-react";
 import { PERSON, JOB_SEARCH } from "../../data/portfolio";
+import { SECTION_INNER } from "./sectionStyles";
 
 const Contact = () => {
   const [copied, setCopied] = useState(false);
@@ -18,15 +19,11 @@ const Contact = () => {
   const phoneHref = `tel:${PERSON.phone.replace(/\s/g, "")}`;
 
   return (
-    <section
-      id="contact"
-      data-testid="contact-section"
-      className="relative py-24 sm:py-32 border-t border-ink-600 overflow-hidden"
-    >
+    <section data-testid="contact-section" className="relative border-t border-ink-600 overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
       <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-amber/[0.04] blur-[120px] pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-6 sm:px-12">
+      <div id="contact" className={`relative ${SECTION_INNER}`}>
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-12 lg:col-span-5">
             <div className="label-mono">[ 06 / Contact ]</div>

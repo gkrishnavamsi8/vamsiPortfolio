@@ -1,5 +1,6 @@
 import { PROJECTS } from "../../data/portfolio";
 import { ArrowUpRight } from "lucide-react";
+import { SECTION_INNER } from "./sectionStyles";
 
 const ProjectCard = ({ project, index }) => {
   const isFlagshipGen = project.type.includes("GENAI");
@@ -81,12 +82,8 @@ const ProjectCard = ({ project, index }) => {
 
 const Projects = () => {
   return (
-    <section
-      id="projects"
-      data-testid="projects-section"
-      className="relative py-24 sm:py-32 border-t border-ink-600"
-    >
-      <div className="max-w-7xl mx-auto px-6 sm:px-12">
+    <section data-testid="projects-section" className="border-t border-ink-600">
+      <div id="projects" className={SECTION_INNER}>
         <div className="grid grid-cols-12 gap-8 mb-12">
           <div className="col-span-12 lg:col-span-5">
             <div className="label-mono">[ 03 / Selected Work ]</div>

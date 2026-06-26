@@ -1,14 +1,11 @@
 import { EDUCATION } from "../../data/portfolio";
 import { GraduationCap, FileText, ArrowUpRight } from "lucide-react";
+import { SECTION_INNER } from "./sectionStyles";
 
 const Education = () => {
   return (
-    <section
-      id="education"
-      data-testid="education-section"
-      className="relative py-24 sm:py-32 border-t border-ink-600"
-    >
-      <div className="max-w-7xl mx-auto px-6 sm:px-12">
+    <section data-testid="education-section" className="border-t border-ink-600">
+      <div id="education" className={SECTION_INNER}>
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-12 lg:col-span-4">
             <div className="label-mono">[ 05 / Education ]</div>

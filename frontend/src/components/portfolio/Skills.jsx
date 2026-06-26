@@ -1,4 +1,5 @@
 import { SKILLS } from "../../data/portfolio";
+import { SECTION_INNER } from "./sectionStyles";
 
 const Column = ({ data, accent }) => (
   <div
@@ -48,12 +49,8 @@ const Column = ({ data, accent }) => (
 
 const Skills = () => {
   return (
-    <section
-      id="skills"
-      data-testid="skills-section"
-      className="relative py-24 sm:py-32 border-t border-ink-600"
-    >
-      <div className="max-w-7xl mx-auto px-6 sm:px-12">
+    <section data-testid="skills-section" className="border-t border-ink-600">
+      <div id="skills" className={SECTION_INNER}>
         <div className="grid grid-cols-12 gap-8 mb-12">
           <div className="col-span-12 lg:col-span-5">
             <div className="label-mono">[ 04 / Stack ]</div>
