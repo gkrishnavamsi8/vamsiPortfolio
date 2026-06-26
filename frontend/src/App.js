@@ -1,5 +1,4 @@
 import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Nav from "@/components/portfolio/Nav";
 import Hero from "@/components/portfolio/Hero";
 import About from "@/components/portfolio/About";
@@ -11,33 +10,23 @@ import Contact from "@/components/portfolio/Contact";
 import Footer from "@/components/portfolio/Footer";
 import { Toaster } from "sonner";
 
-const Home = () => {
-  return (
-    <div data-testid="home-page" className="bg-ink-950 text-bone font-body min-h-screen">
-      <Nav />
-      <main>
-        <Hero />
-        <About />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Education />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
-  );
-};
-
 function App() {
   return (
     <div className="App">
       <Toaster theme="dark" />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </BrowserRouter>
+      <div data-testid="home-page" className="bg-ink-950 text-bone font-body min-h-screen">
+        <Nav />
+        <main>
+          <Hero />
+          <About />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Education />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }
