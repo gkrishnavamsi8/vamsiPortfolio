@@ -35,10 +35,9 @@ const Hero = () => {
 
             <h1
               data-testid="hero-headline"
-              className="font-sans font-bold text-5xl sm:text-7xl lg:text-[7.5rem] leading-[0.95] tracking-tighter text-bone"
+              className="font-sans font-medium text-5xl sm:text-6xl lg:text-[5.25rem] leading-[1.02] tracking-tighter text-bone"
             >
-              Krishna<br />
-              <span className="text-bone">Vamsi.</span>
+              Krishna Vamsi.
               <span className="text-amber animate-blink ml-1">_</span>
             </h1>
 
@@ -94,9 +93,20 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right column - meta info */}
+          {/* Right column - photo + meta info */}
           <div className="col-span-12 lg:col-span-3 lg:pt-8">
             <div className="border-t border-ink-600 lg:border-t-0 lg:border-l lg:pl-6 pt-6 lg:pt-0">
+              <div className="mb-6 relative inline-block group">
+                <img
+                  data-testid="hero-profile-photo"
+                  src="/profile.png"
+                  alt="Krishna Vamsi Gangisetty"
+                  loading="eager"
+                  className="w-40 h-40 sm:w-44 sm:h-44 object-cover border border-ink-600 grayscale group-hover:grayscale-0 transition-all duration-500"
+                />
+                <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b border-r border-amber pointer-events-none" />
+                <div className="absolute -top-2 -left-2 w-8 h-8 border-t border-l border-amber pointer-events-none" />
+              </div>
               <div className="space-y-6">
                 <div>
                   <div className="label-mono text-bone-dim">Currently</div>
