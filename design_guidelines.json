@@ -1,0 +1,134 @@
+{
+  "theme": "dark",
+  "archetype": "Modified Archetype 4 (Swiss & High-Contrast) + Terminal/Editorial Vibe",
+  "design_philosophy": "SDE-first with GenAI as a strong secondary. The aesthetic commands attention through engineering rigor and modern AI sensibility. It uses technical minimalism, high contrast, and asymmetrical editorial layouts. Avoids all generic AI clichés (no purple/teal gradients). Built as a pure static React site for GitHub pages.",
+  "colors": {
+    "background": "#050505",
+    "surface": "#121212",
+    "surface_hover": "#1A1A1A",
+    "border": "#2A2A2A",
+    "border_hover": "#404040",
+    "text_primary": "#F5F5F5",
+    "text_secondary": "#8A8A8A",
+    "accent": "#FFB800",
+    "accent_hover": "#E6A600",
+    "accent_muted": "rgba(255, 184, 0, 0.1)"
+  },
+  "typography": {
+    "headings": {
+      "family": "Outfit",
+      "weights": ["400", "700"],
+      "classes": "font-sans tracking-tight text-text_primary",
+      "h1": "text-5xl sm:text-6xl+ leading-none tracking-tighter",
+      "h2": "text-3xl sm:text-4xl leading-tight tracking-tight",
+      "h3": "text-xl sm:text-2xl"
+    },
+    "body": {
+      "family": "Manrope",
+      "classes": "font-sans text-text_secondary leading-relaxed",
+      "base": "text-base sm:text-lg"
+    },
+    "mono_labels": {
+      "family": "JetBrains Mono",
+      "classes": "font-mono tracking-[0.1em] uppercase text-xs sm:text-sm text-accent"
+    }
+  },
+  "spacing_and_layout": {
+    "container": "max-w-7xl mx-auto px-6 sm:px-12",
+    "section_padding": "py-24 sm:py-32",
+    "gap_standard": "gap-8 sm:gap-12",
+    "grid_strategy": "Asymmetrical layout. Use the 'Grid Borders (Technical Look)' for the Skills section to expose the skeleton. Use 'Bento Grid' for the Projects section to create visual tension.",
+    "alignment": "Strictly left-aligned for hero and dense content. No centered equal-spacing layouts."
+  },
+  "surface_strategies": {
+    "cards": "Flat solid surfaces (#121212). Sharp edges (rounded-none or max rounded-sm). 1px solid border (#2A2A2A). On hover: border-accent, slightly lift (-translate-y-1).",
+    "header": "Crystal Glass variant: backdrop-blur-xl bg-[#050505]/80, 1px bottom border border-border.",
+    "monogram_avatar": "Sharp, geometric box (e.g., 64x64 or 80x80) with a 1px accent border, containing the letters 'KV' in JetBrains Mono, text-accent."
+  },
+  "components_instructions": {
+    "buttons": "Primary: Solid accent background with dark text, sharp edges. Secondary: Transparent with 1px border (#2A2A2A) and text_primary, hover changes border to accent.",
+    "navigation": "Sticky top nav. Must include Brand ('KV' or 'Krishna Vamsi') on left, links (About, Experience, Projects, Skills) in middle, and 'Resume' CTA on right. Visible on desktop.",
+    "skills_columns": "Two starkly contrasting columns: 'SDE Stack' vs 'GenAI Stack'. Use a visible grid/table-like structure with 1px borders dividing the items. Technical and raw.",
+    "project_cards": "Bento style. Title in Outfit, tech stack as JetBrains Mono tags. Minimalist, text-forward. No dummy placeholder images. If no image, use typographic layout.",
+    "icons": "Use lucide-react with thin stroke widths (1.5px) to maintain the technical, high-end feel."
+  },
+  "media": {
+    "images": [
+      {
+        "category": "hero_background",
+        "url": "https://images.unsplash.com/photo-1526289034009-0240ddb68ce3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzV8MHwxfHNlYXJjaHwxfHxkYXJrJTIwYWJzdHJhY3QlMjBnZW9tZXRyeSUyMHRleHR1cmV8ZW58MHx8fHwxNzgyNDY1MTQyfDA&ixlib=rb-4.1.0&q=85",
+        "description": "Dark structural architecture. Use as a very low opacity (10-15%) overlay behind the hero section to give it an engineering structure.",
+        "usage": "bg-cover bg-center opacity-10 absolute inset-0 pointer-events-none mix-blend-overlay"
+      },
+      {
+        "category": "projects_background_texture",
+        "url": "https://images.unsplash.com/photo-1714548529197-537c1f0b6aa7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTV8MHwxfHNlYXJjaHwzfHxkYXJrJTIwdGVjaG5pY2FsJTIwYWJzdHJhY3QlMjBuZXR3b3JrJTIwZ3JpZHxlbnwwfHx8fDE3ODI0NjUxMzB8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Dark abstract network grid. Good for GenAI project cards or the GenAI skills section background at very low opacity.",
+        "usage": "opacity-20"
+      }
+    ]
+  },
+  "motion_and_interactions": {
+    "library": "framer-motion",
+    "scroll": "Smooth scrolling via custom hook or standard CSS scroll-behavior: smooth.",
+    "animations": "Subtle fade-in and slide-up (y: 20 -> 0) on scroll. Staggered entrance for skill lists and project cards. No bouncy or playful animations. Keep it precise, linear, and fast."
+  },
+  "accessibility_and_testing": {
+    "contrast": "Ensure text_secondary (#8A8A8A) passes WCAG AA against background (#050505).",
+    "testing_attributes": "All interactive elements (nav links, buttons, project links, contact links) MUST include data-testid. Example: data-testid='nav-resume-button'."
+  },
+  "content_mapping": {
+    "hero": {
+      "name": "Krishna Vamsi Gangisetty",
+      "tagline": "Software Engineer building scalable systems & shipping GenAI features.",
+      "avatar": "Monogram 'KV'",
+      "ctas": ["Resume", "Contact", "GitHub", "LinkedIn"]
+    },
+    "about": {
+      "summary": "3+ years of experience as an SDE, currently at Amdocs. Expanding engineering rigor into the domain of GenAI and Agentic AI."
+    },
+    "experience": {
+      "role": "Software Developer @ Amdocs",
+      "period": "July 2023 - Present",
+      "details": "Telecom platforms for Comcast/AT&T. Java, Spring Boot, Kafka, K8s + AskMiPaaS Agentic AI platform."
+    },
+    "projects": [
+      {
+        "title": "Distributed Payment Orchestration & Fraud Intelligence",
+        "type": "SDE Flagship",
+        "tech": ["Java 21", "Spring Boot", "Kafka", "pgvector", "Spring AI RAG"]
+      },
+      {
+        "title": "AskMiPaaS — Enterprise Agentic AI",
+        "type": "GenAI Flagship",
+        "tech": ["Python", "LangChain", "LangGraph", "RAG", "Azure OpenAI"]
+      },
+      {
+        "title": "Build a Plan — Churn Prediction",
+        "type": "ML Pipeline",
+        "tech": ["Logistic Regression", "Random Forest", "XGBoost", "K-Means"]
+      },
+      {
+        "title": "Grocery Recommendation System",
+        "type": "Publication",
+        "tech": ["IEEE OCIT 2022", "Apriori", "Chi-Square"]
+      }
+    ],
+    "skills": {
+      "sde_stack": ["Java", "Spring Boot", "Kafka", "AWS", "Docker", "K8s", "PostgreSQL", "Redis", "CI/CD"],
+      "genai_stack": ["LangChain", "LangGraph", "MCP", "RAG", "pgvector", "Azure OpenAI", "Prompt Engineering"]
+    },
+    "education": {
+      "degree": "B.Tech CSE w/ AI&ML Spec.",
+      "school": "VIT Chennai",
+      "period": "2019-2023",
+      "cgpa": "8.3",
+      "highlight": "IEEE Publication (OCIT 2022)"
+    },
+    "contact": {
+      "email": "gangisettykrishnavamsi@gmail.com",
+      "github": "https://github.com/gkrishnavamsi8",
+      "linkedin": "https://linkedin.com/in/gkrishnavamsi8"
+    }
+  }
+}
