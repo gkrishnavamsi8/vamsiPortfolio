@@ -40,6 +40,14 @@ jobs:
         env:
           CI: false
 
+      - name: Verify custom domain asset paths
+        run: |
+          if grep -q '/vamsiPortfolio/static' build/index.html; then
+            echo 'Build still uses /vamsiPortfolio/ paths.'
+            echo 'Set frontend/package.json homepage to https://vamsigangisetty.in'
+            exit 1
+          fi
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
